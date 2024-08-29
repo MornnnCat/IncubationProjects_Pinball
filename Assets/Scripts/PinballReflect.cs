@@ -16,8 +16,9 @@ public class PinballReflect : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("111");
+        
         moveDir = Vector2.Reflect(moveDir, collision.contacts[0].normal);
+        Debug.Log(collision.contacts[0].normal);
         hitCount++;
         if (hitCount > 30)
         {
