@@ -36,6 +36,6 @@ public class FogSize : MonoBehaviour
  
         // 将生成的纹理保存为PNG文件
         byte[] bytes = texture.EncodeToPNG();
-        System.IO.File.WriteAllBytes("Assets/Textures/StartFog.png", bytes);
+        System.IO.File.WriteAllBytes("Assets/Textures/111.png", bytes);
     }
 }

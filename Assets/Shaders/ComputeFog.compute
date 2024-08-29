@@ -1,6 +1,7 @@
 #pragma kernel CSMain
 #pragma kernel InitFog
 #pragma kernel RoundUpdate
+#pragma kernel IsInFog
 
 Texture2D<float> Trail;
 RWTexture2D<float4> Fog;
@@ -25,4 +26,10 @@ void InitFog(uint3 id : SV_DispatchThreadID)
 void RoundUpdate(uint3 id : SV_DispatchThreadID)
 {
     LastRoundFogTexture[id.xy] = Fog[id.xy];
+}
+
+[numthreads(1,1,1)]
+void IsInFog()
+{
+    
 }

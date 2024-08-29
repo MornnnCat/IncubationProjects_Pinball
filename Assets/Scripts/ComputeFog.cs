@@ -57,8 +57,20 @@ public class ComputeFog : MonoBehaviour
         computeFog.Dispatch(roundUpdateKernal, 32, 32, 1);
     }
 
-    /*public bool IsInFog(Vector2 worldPos)
+    public bool IsInFog(Vector2 worldPos,Camera mainCam)
     {
-        lastRoundFogTexture.c
-    }*/
+        Vector2 screenPos = (worldPos / mainCam.orthographicSize + new Vector2(mainCam.aspect,1f)) * 90f;
+        // 创建一个临时纹理，尺寸与RenderTexture一致
+        int width = lastRoundFogTexture.width;
+        int height = lastRoundFogTexture.height;
+        Texture2D tempTexture = new Texture2D(width, height, TextureFormat.ARGB32, false);
+ 
+        // 拷贝RenderTexture的内容到临时纹理
+        RenderTexture.active = lastRoundFogTexture;
+        tempTexture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+        tempTexture.Apply();
+        bool isInFog = tempTexture.GetPixel((int)screenPos.x, (int)screenPos.y).r > 0.1f;
+        DestroyImmediate(tempTexture);
+        return isInFog;
+    }
 }
