@@ -1,17 +1,28 @@
-// Each #kernel tells which function to compile; you can have many kernels
 #pragma kernel CSMain
-
-// Create a RenderTexture with enableRandomWrite flag and set it
-// with cs.SetTexture
+#pragma kernel InitFog
+#pragma kernel RoundUpdate
 
 Texture2D<float> Trail;
 RWTexture2D<float4> Fog;
+Texture2D<float> StartFog;
+RWTexture2D<float> LastRoundFogTexture;
 
 [numthreads(32,32,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    // TODO: insert actual code here!
     Fog[id.xy] += Trail[id.xy];
     Fog[id.xy] = saturate(Fog[id.xy]);
-    //Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
+}
+
+
+[numthreads(32,32,1)]
+void InitFog(uint3 id : SV_DispatchThreadID)
+{
+    Fog[id.xy] += StartFog[id.xy];
+}
+
+[numthreads(32,32,1)]
+void RoundUpdate(uint3 id : SV_DispatchThreadID)
+{
+    LastRoundFogTexture[id.xy] = Fog[id.xy];
 }
