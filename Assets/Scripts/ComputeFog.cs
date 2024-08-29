@@ -11,7 +11,7 @@ public class ComputeFog : MonoBehaviour
     public Material material;
     void Start()
     {
-        fogTexture = new RenderTexture(256, 256, 32, RenderTextureFormat.ARGB32);
+        fogTexture = new RenderTexture(320, 180, 32, RenderTextureFormat.ARGB32);
         fogTexture.enableRandomWrite = true;
         fogTexture.Create();
         kernal = computeFog.FindKernel("CSMain");
