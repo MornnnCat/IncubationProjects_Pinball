@@ -12,14 +12,14 @@ public class PinballReflect : MonoBehaviour
     [Header("碰到几次碰撞体后停止")] public int hitCountToStop = 3;
 
     // TODO: 后续碰到迷雾后 一点点减少速度
-    [Header("子弹移动速度")] 
+    [Header("子弹移动速度")]
     public float pinballMoveSpeed = 10f;
 
     public ComputeFog computeFog;
 
     private void Start()
     {
-        Debug.Log("2");
+        Debug.Log("1");
         moveDir = GameObject.Find("FirePoint").transform.up * pinballMoveSpeed;
     }
 
