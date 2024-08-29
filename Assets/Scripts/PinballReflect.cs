@@ -15,12 +15,12 @@ public class PinballReflect : MonoBehaviour
     [Header("子弹移动速度")]
     public float pinballMoveSpeed = 10f;
 
-    public ComputeFog computeFog;
+    private ComputeFog computeFog;
 
     private void Start()
     {
-        Debug.Log("4");
         moveDir = GameObject.Find("FirePoint").transform.up * pinballMoveSpeed;
+        computeFog = GameObject.Find("ScriptsHolder").GetComponent<ComputeFog>();
     }
 
     private void Update()
