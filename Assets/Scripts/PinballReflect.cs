@@ -15,6 +15,8 @@ public class PinballReflect : MonoBehaviour
     [Header("子弹移动速度")] 
     public float pinballMoveSpeed = 10f;
 
+    public ComputeFog computeFog;
+
     private void Start()
     {
         moveDir = GameObject.Find("FirePoint").transform.up * pinballMoveSpeed;
@@ -50,6 +52,7 @@ public class PinballReflect : MonoBehaviour
     {
         moveDir = Vector2.zero;
         isMoving = false;
+        computeFog.LastRoundFogTexture();
     }
 
     public int GetHitCountToStop() => hitCountToStop;
