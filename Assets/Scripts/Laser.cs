@@ -4,11 +4,10 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     public Transform firePoint;
-
     public LineRenderer lineRenderer;
+    public PinballReflect pinballReflect;
 
-    [Header("哪些层不会被射线检测")]
-    public LayerMask laserMask;
+    [Header("哪些层不会被射线检测")] public LayerMask laserMask;
 
     private readonly List<Vector2> _laserPointList = new();
 
@@ -22,7 +21,8 @@ public class Laser : MonoBehaviour
     {
         _laserPointList.Clear();
         Vector2 startPoint = firePoint.position;
-        Vector2 direction = firePoint.up * -1f;
+        Vector2 direction = firePoint.up;
+
         _laserPointList.Add(startPoint);
 
         int reflections = 0;
@@ -36,7 +36,7 @@ public class Laser : MonoBehaviour
             startPoint = hitInfo.point + direction * 0.01f;
 
             reflections++;
-        } while (reflections < 3);
+        } while (reflections < pinballReflect.GetHitCountToStop());
     }
 
     private void UpdateLineRenderer()
