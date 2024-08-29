@@ -20,6 +20,7 @@ public class PinballReflect : MonoBehaviour
     private void Start()
     {
         Debug.Log("5");
+        Debug.Log("4");
         moveDir = GameObject.Find("FirePoint").transform.up * pinballMoveSpeed;
     }
 
