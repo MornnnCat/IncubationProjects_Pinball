@@ -14,6 +14,7 @@ public class Laser : MonoBehaviour
 
     private readonly List<Vector2> _laserPointList = new();
     private int maxHitCount;
+    private Vector2 offset = Vector2.zero;
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class Laser : MonoBehaviour
         for (int i = 0; i < maxHitCount; i++)
         {
             var hitInfo = Physics2D.Raycast(startPoint, direction, Mathf.Infinity, ~ laserMask);
-            if (!hitInfo.collider) break;
+            if (!hitInfo.collider/* || hitInfo.collider.CompareTag("ChangePos")*/) break;
             hitPoints[i] = hitInfo.point;
             direction = Vector2.Reflect(direction, hitInfo.normal);
             startPoint = hitInfo.point + direction * 0.01f;
