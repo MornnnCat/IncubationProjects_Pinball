@@ -16,13 +16,11 @@ public class PinballReflect : MonoBehaviour
     public float pinballMoveSpeed = 10f;
 
     private ComputeFog computeFog;
-    private Camera mainCam;
 
     private void Start()
     {
         moveDir = GameObject.Find("FirePoint").transform.up.normalized;
         computeFog = GameObject.Find("ScriptsHolder").GetComponent<ComputeFog>();
-        mainCam = Camera.main;
     }
 
     private void Update()
@@ -42,13 +40,13 @@ public class PinballReflect : MonoBehaviour
 
     private void Move()
     {
-        if (computeFog.IsInFog(transform.position,mainCam))
+        if (computeFog.IsInFog(transform.position))
         {
-            drag = 1.0f;
+            drag = 0.996f;
         }
         else
         {
-            drag = 0.996f;
+            drag = 1.0f;
         }
         moveDir *= drag;
         if (Mathf.Abs(moveDir.x) + Mathf.Abs(moveDir.y) < 0.1f)
@@ -63,7 +61,7 @@ public class PinballReflect : MonoBehaviour
         moveDir = Vector2.zero;
         isMoving = false;
         computeFog.LastRoundFogTexture();
-        
+        Destroy(gameObject);
     }
 
     public int GetHitCountToStop() => hitCountToStop;

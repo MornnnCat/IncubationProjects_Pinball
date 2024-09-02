@@ -11,6 +11,7 @@ public class ComputeFog : MonoBehaviour
     public Material material;
     public Texture2D startFog;
     public RenderTexture lastRoundFogTexture;
+    private Camera mainCam;
     void Start()
     {
         Init();
@@ -23,6 +24,7 @@ public class ComputeFog : MonoBehaviour
     }
     private void Init()
     {
+        mainCam = Camera.main;
         fogTexture = new RenderTexture(320, 180, 32, RenderTextureFormat.ARGB32);
         fogTexture.enableRandomWrite = true;
         fogTexture.Create();
@@ -57,7 +59,7 @@ public class ComputeFog : MonoBehaviour
         computeFog.Dispatch(roundUpdateKernal, 32, 32, 1);
     }
 
-    public bool IsInFog(Vector2 worldPos,Camera mainCam)
+    public bool IsInFog(Vector2 worldPos)
     {
         Vector2 screenPos = (worldPos / mainCam.orthographicSize + new Vector2(mainCam.aspect,1f)) * 90f;
         // 创建一个临时纹理，尺寸与RenderTexture一致
@@ -69,7 +71,7 @@ public class ComputeFog : MonoBehaviour
         RenderTexture.active = lastRoundFogTexture;
         tempTexture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
         tempTexture.Apply();
-        bool isInFog = tempTexture.GetPixel((int)screenPos.x, (int)screenPos.y).r > 0.1f;
+        bool isInFog = tempTexture.GetPixel((int)screenPos.x, (int)screenPos.y).r < 0.1f;
         DestroyImmediate(tempTexture);
         return isInFog;
     }
