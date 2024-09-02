@@ -23,7 +23,7 @@ public class PinballReflect : MonoBehaviour
         computeFog = GameObject.Find("ScriptsHolder").GetComponent<ComputeFog>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (isMoving) Move();
     }
@@ -40,14 +40,15 @@ public class PinballReflect : MonoBehaviour
 
     private void Move()
     {
-        if (computeFog.IsInFog(transform.position))
+        drag = computeFog.IsInFog(transform.position) ? 0.993f : 1.002f;
+        /*if (computeFog.IsInFog(transform.position))
         {
-            drag = 0.996f;
+            drag = 0.993f;
         }
         else
         {
             drag = 1.0f;
-        }
+        }*/
         moveDir *= drag;
         if (Mathf.Abs(moveDir.x) + Mathf.Abs(moveDir.y) < 0.1f)
         {
