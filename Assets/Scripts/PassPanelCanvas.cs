@@ -1,17 +1,27 @@
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class PassPanelCanvas : MonoBehaviour
 {
-    public Button nextLevelBtn;
+    public static PassPanelCanvas Instance;
     public RectTransform panelRectTransform;
-    [SceneNameAttribute] public string targetSceneName;
+    private string _targetSceneName;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     private void Start()
     {
         SetPanelSize();
-        SetupNextLevelButton();
     }
 
     private void SetPanelSize()
@@ -21,12 +31,19 @@ public class PassPanelCanvas : MonoBehaviour
         panelRectTransform.sizeDelta = new Vector2(w, h);
     }
 
-    private void SetupNextLevelButton()
+    public void OnClickNextLevelButton()
     {
-        nextLevelBtn.onClick.AddListener(() =>
-        {
-            GlobalSceneManager.Instance.LoadSceneBySceneName(targetSceneName);
-            this.gameObject.SetActive(false);
-        });
+        GlobalSceneManager.Instance.LoadSceneBySceneName(_targetSceneName);
+        IsShowPanel(false);
+    }
+
+    public void SetTargetSceneName(string targetSceneName)
+    {
+        _targetSceneName = targetSceneName;
+    }
+
+    public void IsShowPanel(bool isShow)
+    {
+        panelRectTransform.gameObject.SetActive(isShow);
     }
 }

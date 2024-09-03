@@ -1,20 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Docker_Destination : MonoBehaviour
 {
-    public Canvas passPanelCanvas;
+    public GlobalSceneManager.SceneNameEnum nextSceneName;
+
+    private void Awake()
+    {
+        // 时间恢复
+        Time.timeScale = 1;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Score();
     }
-    
+
     private void Score()
     {
+        // 设置下一关场景名称
+        PassPanelCanvas.Instance.SetTargetSceneName(nextSceneName.ToString());
         // 展示过关面板
-        passPanelCanvas.gameObject.SetActive(true);
+        PassPanelCanvas.Instance.IsShowPanel(true);
         // 时间暂停
         Time.timeScale = 0;
         Debug.Log("Score!");

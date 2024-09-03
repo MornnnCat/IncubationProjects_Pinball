@@ -1,9 +1,17 @@
+using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GlobalSceneManager : MonoBehaviour
 {
     public static GlobalSceneManager Instance;
+
+    public enum SceneNameEnum
+    {
+       Level_1,
+       Level_2,
+    }
 
 
     private void Awake()

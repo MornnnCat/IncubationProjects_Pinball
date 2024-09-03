@@ -480,8 +480,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 54f076bee72b76841866bd0048bfdd6a, type: 3}
+  m_Color: {r: 1, g: 0.98134106, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -500,8 +500,8 @@ Transform:
   m_GameObject: {fileID: 256118372}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.23, y: 2.55, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.46, y: 3.78, z: 0}
+  m_LocalScale: {x: 0.248095, y: 0.248095, z: 0.49619}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -538,9 +538,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.20659323}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.7072854
 --- !u!114 &256118377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d5f19ab0e7c724fa4a43a1d79a2a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passPanelCanvas: {fileID: 1434674471}
+  nextSceneName: 0
 --- !u!1 &364249473
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 479220574}
-  - component: {fileID: 479220573}
+  - component: {fileID: 479220575}
   m_Layer: 0
   m_Name: DontDestroyElement
   m_TagString: Untagged
@@ -604,18 +604,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &479220573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479220572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f184e895c7c332458c8213908cff129, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &479220574
 Transform:
   m_ObjectHideFlags: 0
@@ -629,10 +617,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 879823459}
   - {fileID: 1049583310}
   - {fileID: 1434674472}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &479220575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479220572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f184e895c7c332458c8213908cff129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &491716387
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &619719701
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1588,12 +1589,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879823456}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 479220574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893230958
 GameObject:
@@ -2573,7 +2574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1434674469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2669,9 +2670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4929b014c3649145a642ec06b144ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelBtn: {fileID: 1581156642}
   panelRectTransform: {fileID: 619719701}
-  targetSceneName: SampleScene
 --- !u!1 &1444075524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,7 +3394,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1581156643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1434674473}
+        m_TargetAssemblyTypeName: PassPanelCanvas, Assembly-CSharp
+        m_MethodName: OnClickNextLevelButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1581156643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3869,5 +3880,4 @@ SceneRoots:
   - {fileID: 710021807}
   - {fileID: 1253646714}
   - {fileID: 256118374}
-  - {fileID: 879823459}
   - {fileID: 479220574}
