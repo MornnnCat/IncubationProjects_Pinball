@@ -18,11 +18,10 @@ public class Docker_Destination : MonoBehaviour
     private void Score()
     {
         // 设置下一关场景名称
-        PassPanelCanvas.Instance.SetTargetSceneName(nextSceneName.ToString());
+        //PassPanelCanvas.Instance.SetTargetSceneName(nextSceneName.ToString());
         // 展示过关面板
         PassPanelCanvas.Instance.IsShowPanel(true);
         // 时间暂停
         Time.timeScale = 0;
-        Debug.Log("Score!");
     }
 }

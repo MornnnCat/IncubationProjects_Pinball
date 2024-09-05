@@ -43,7 +43,7 @@ public class PinballReflect : MonoBehaviour
 
     private void Move()
     {
-        drag = computeFog.IsInFog(transform.position) ? 0.993f : 1.002f;
+        drag = computeFog.IsInFog(transform.position) ? 0.993f : 0.998f;
         /*if (computeFog.IsInFog(transform.position))
         {
             drag = 0.993f;

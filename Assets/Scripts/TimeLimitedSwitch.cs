@@ -7,6 +7,7 @@ public class TimeLimitedSwitch : MonoBehaviour
     public Transform door;
     public float speedTimeOfCloseDoor = 3f;
     private Vector2 _doorOriginScale;
+    public bool isLimitTime = true;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class TimeLimitedSwitch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        PlayCloseDoorAnimate();
+        if (isLimitTime && door.gameObject.activeSelf) PlayCloseDoorAnimate();
+        else door.gameObject.SetActive(false);
     }
 }

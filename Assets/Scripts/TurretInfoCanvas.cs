@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TurretInfoCanvas : MonoBehaviour
@@ -36,5 +37,10 @@ public class TurretInfoCanvas : MonoBehaviour
     {
         UpdatePowerInfo();
         UpdateBulletInfo();
+    }
+    public void ReTry()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 }

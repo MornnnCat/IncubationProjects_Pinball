@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6238995814131945072}
   - component: {fileID: 3123056679441093305}
   - component: {fileID: 3133227366110013153}
-  - component: {fileID: 5539345640415878202}
   - component: {fileID: 1278709332346170788}
+  - component: {fileID: 1215152558621809717}
   m_Layer: 7
   m_Name: Pinball
   m_TagString: Untagged
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,23 +123,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0001
---- !u!114 &5539345640415878202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3212745799864731779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c90d9a47b7c5e147a10e9d2f8d38c01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveDir: {x: 2, y: 1}
-  drag: 1
-  isMoving: 1
-  hitCountToStop: 10
-  pinballMoveSpeed: 10
 --- !u!50 &1278709332346170788
 Rigidbody2D:
   serializedVersion: 4
@@ -167,6 +150,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1215152558621809717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212745799864731779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb77cf9d75bf0a14b9a54cd50ec69bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDir: {x: 0, y: 0}
+  drag: 1
+  isMoving: 1
+  hitCountToStop: 10
+  pinballMoveSpeed: 10
 --- !u!1 &6069347259347388573
 GameObject:
   m_ObjectHideFlags: 0
